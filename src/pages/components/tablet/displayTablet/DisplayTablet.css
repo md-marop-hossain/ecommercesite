@@ -1,0 +1,9 @@
+.card-height {
+    height: 625px !important;
+}
+
+.single-page-button {
+    padding: 0 6px;
+    color: white;
+    font-weight: 500;
+}

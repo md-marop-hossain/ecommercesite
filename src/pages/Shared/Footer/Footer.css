@@ -1,0 +1,26 @@
+.bg-footer{
+    background-color: rgb(9 7 7);
+}
+
+.color-pur{
+    color: rgba(245, 245, 245, 0.63);
+}
+.address-details{
+    color:rgba(245, 245, 245, 0.37)
+}
+.link-footer-f{
+    text-decoration: none;
+    color: rgba(136, 137, 180, 0.596) ;
+}
+
+.copyright-section{
+    color: rgb(59, 100, 136);
+    font-size: 14px;
+    font-weight: 600;
+}
+.twitter-c{
+    color: rgb(3, 188, 250) !important;
+}
+.f-c{
+    color: rgb(55, 55, 223) !important;
+}

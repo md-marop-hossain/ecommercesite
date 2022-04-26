@@ -1,0 +1,20 @@
+.mxWidth {
+    max-width: 540px;
+}
+
+.desc-title {
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(185, 181, 181, 0.39);
+
+}
+
+.desc-title-t {
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(185, 181, 181, 0.808);
+}
