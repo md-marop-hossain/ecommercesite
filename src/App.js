@@ -23,8 +23,6 @@ import ContactPage from "./pages/components/ContactPage/ContactPage";
 function App() {
   return (
     <div className="App">
-
-
       {/* react router dom */}
       <AuthProvider>
         <BrowserRouter>
@@ -33,34 +31,27 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-
             <Route exact path="/home">
               <Home></Home>
             </Route>
-
             <Route exact path="/monitor">
               <Monitor></Monitor>
             </Route>
             <PrivateRoute exact path="/details/:id">
               <MonitorDetails></MonitorDetails>
             </PrivateRoute>
-
             <Route exact path="/review">
               <OrderReview></OrderReview>
             </Route>
-
             <Route exact path='/shipping'>
               <Shipping></Shipping>
             </Route>
-
-
             <Route exact path="/tablet">
               <Tablet></Tablet>
             </Route>
             <PrivateRoute exact path="/tabletDetails/:id">
               <TabletDetails></TabletDetails>
             </PrivateRoute>
-
             <Route exact path="/speaker">
               <Speaker></Speaker>
             </Route>
@@ -70,34 +61,21 @@ function App() {
             <Route exact path="/speakerDetails/:id">
               <SpeakerDetails></SpeakerDetails>
             </Route>
-
-
             <Route exact path="/login">
               <Login></Login>
             </Route>
-
             <Route exact path="/register">
               <Register></Register>
             </Route>
-
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
-
-
-
-
             <Route exact path="*">
               <NotFound></NotFound>
             </Route>
-
-
-
-
           </Switch>
           {/* <Footer></Footer> */}
         </BrowserRouter>
-
       </AuthProvider>
 
     </div >

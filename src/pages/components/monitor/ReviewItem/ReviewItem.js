@@ -2,18 +2,14 @@ import React from 'react';
 import './ReviewItem.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '../../../Shared/Footer/Footer';
 
 const ReviewItem = (props) => {
 
-    const { brand, brightness, colourSupport, contrastRatio, displayType, image, monitorID, panelType, price, productCode, refreshRate, regularPrice, resolution, responseTime, screenSize, title, warrantyInformation, _id, quantity } = props.monitor || {};
-
+    const { brand, displayType, image, price, regularPrice, resolution, screenSize, title, warrantyInformation, _id, quantity } = props.monitor || {};
     const { handleRemove } = props;
-
     const notify = () => toast.success('Item successfully deleted. please refresh the current page to see your remaining order', {
         position: "top-center",
         autoClose: 4000,
@@ -31,7 +27,6 @@ const ReviewItem = (props) => {
                     <div class="p-6 flex flex-col justify-start">
                         <h5 class="text-gray-900 text-xl font-medium mb-2">{title}</h5>
                         <p class="text-gray-700 text-base mb-4">
-
                             <p class="">Brand : {brand}</p>
                             <p class="">Resolution : {resolution}</p>
                             <p class="">{displayType} {screenSize} display</p>
@@ -39,7 +34,6 @@ const ReviewItem = (props) => {
                             <p class=" fw-bold">Price : {price}</p>
                             <p class=" fw-bold"><i>Quantity: {quantity}</i></p>
                             <p class="">{warrantyInformation}</p>
-
                         </p>
                         <div>
                             <Stack direction="row" spacing={2}>

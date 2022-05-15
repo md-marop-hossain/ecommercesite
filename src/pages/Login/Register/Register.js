@@ -8,7 +8,7 @@ const Register = () => {
 
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
-    const { user, registerUser, isLoading, authError } = useAuth();
+    const { user, registerUser } = useAuth();
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -27,37 +27,27 @@ const Register = () => {
         e.preventDefault();
     }
 
-
     return (
         <div>
 
             <div class="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
-
                 <div class="flex flex-col items-center justify-center">
-
-
                     <h1 className="text-white">TechTrans</h1>
-
-
                     <div >
                         <div class="bg-white shadow rounded lg:w-2/3  md:w-1/2 w-full p-10 mt-16 ">
                             <p tabindex="0" class="flex justify-center focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your account</p>
-
                             <Button
                                 color="lightBlue"
                                 buttonType="link"
                                 size="lg"
                                 ripple="dark"
                             >
-
                                 <NavLink className="nav-bar nav-link" activeStyle={{
                                     fontWeight: "bold",
                                     color: "blue"
                                 }} to="/login"> Already Registered? Please Login</NavLink>
                             </Button>
-
                             <form onSubmit={handleLoginSubmit} >
-
                                 <div>
                                     <label id="text" class="text-sm font-medium leading-none text-gray-800">
                                         Name
@@ -72,7 +62,6 @@ const Register = () => {
                                         class="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                                     />
                                 </div>
-
                                 <div>
                                     <label id="email" class="text-sm font-medium leading-none text-gray-800">
                                         Email

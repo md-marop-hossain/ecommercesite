@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 
-
 const DisplayManageProducts = (props) => {
 
     const { image, title, price, regularPrice, productCode, brand,
@@ -16,7 +15,6 @@ const DisplayManageProducts = (props) => {
 
     return (
         <>
-
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     component="img"

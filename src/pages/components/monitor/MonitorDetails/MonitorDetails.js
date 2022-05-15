@@ -8,16 +8,11 @@ import useCart from '../../../../hooks/useCart';
 import { addToDb } from '../../../utilities/fakedb';
 import Cart from '../../Cart/Cart';
 import { Link } from 'react-router-dom';
-
 import Stack from '@mui/material/Stack';
 import useAuth from '../../../../hooks/useAuth';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 import SendIcon from '@mui/icons-material/Send';
-
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -26,32 +21,20 @@ import Typography from '@mui/material/Typography';
 import Review from '../../../Shared/Review/Review';
 import Footer from '../../../Shared/Footer/Footer';
 
-
-
-
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: '',
-    // border: '2px solid #000',
-    // boxShadow: 24,
     p: 4,
 };
-
-
 const MonitorDetails = () => {
 
     const { id } = useParams();
     const { user } = useAuth();
-    console.log("userrr..", user);
-
     const [specificOrders, setSpecificOrders] = useState([]);
-
     const [cart, setCart] = useCart(specificOrders);
-
     useEffect(() => {
         fetch('http://localhost:5000/monitorCollection')
             .then(res => res.json())
@@ -62,12 +45,7 @@ const MonitorDetails = () => {
 
     const specificeMonitorService = specificOrders.find(t => t._id == id);
     const similarMonitorService = specificOrders.filter(ft => ft._id != id);
-
     const { brand, brightness, colourSupport, contrastRatio, displayType, image, monitorID, panelType, price, productCode, refreshRate, regularPrice, resolution, responseTime, screenSize, title, warrantyInformation, _id } = specificeMonitorService || {};
-
-
-
-
 
     const handleAddToCart = (product) => {
         console.log("product.........", product._id);
@@ -85,17 +63,11 @@ const MonitorDetails = () => {
         setCart(newCart);
         // save to local storage (for now)
         addToDb(product._id);
-
     }
 
-
-
     const selectedProductInfo = (key) => {
-
         const monitorObject = new Object();
-
         const specificMonitor = specificOrders.find(specificM => specificM._id == key);
-
         monitorObject.title = specificMonitor.title;
         monitorObject.image = specificMonitor.image;
         monitorObject.price = specificMonitor.price;
@@ -112,9 +84,6 @@ const MonitorDetails = () => {
         monitorObject.colourSupport = specificMonitor.colourSupport;
         monitorObject.refreshRate = specificMonitor.refreshRate;
         monitorObject.user = user.email;
-
-        console.log("monitorrrrr..", monitorObject);
-
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
@@ -126,20 +95,11 @@ const MonitorDetails = () => {
             .then(data => {
             }
             )
-
     }
-
-
-
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-
-    // const nameRef = useRef();
     const reviewRef = useRef();
-
     const notify = () => toast.success('Review successfully added. please refresh the current page to see your review', {
         position: "top-right",
         autoClose: 4000,
@@ -151,10 +111,8 @@ const MonitorDetails = () => {
     });
 
     const handleAddReview = (event) => {
-
         const current = new Date();
         const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
         const reviewerName = user.displayName;
         const reviewerEmail = user.email;
         const review = reviewRef.current.value;
@@ -163,9 +121,6 @@ const MonitorDetails = () => {
         const currentTime = new Date(new Date().getTime() + 4 * 60 * 60 * 1000).toLocaleTimeString();
         const displayImage = user.photoURL;
         const addCurrentReview = { reviewerName, review, reviewerEmail, productId, currentDate, currentTime, displayImage };
-        console.log("current review...", addCurrentReview);
-
-
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
@@ -176,24 +131,17 @@ const MonitorDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    // alert('Sucessfully added review');
-
                     event.target.reset();
                 }
             })
-
-        // event.target.reset();
         event.preventDefault();
 
     }
-
-
     return (
         <div className='mt-4'>
 
             <Container>
                 <div className="grid grid-cols-2 gap-4">
-
                     <div class="card mb-3" className="mxWidth" >
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -201,7 +149,6 @@ const MonitorDetails = () => {
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-
                                     <h5 class="card-title">{title}</h5>
                                     <p class="card-text">Brand : {brand}</p>
                                     <p class="card-text">Resolution : {resolution}</p>
@@ -209,14 +156,10 @@ const MonitorDetails = () => {
                                     <p class="card-text fw-light">Regular Price : {regularPrice}</p>
                                     <p class="card-text fw-bold">Price : {price}</p>
                                     <p class="card-text">{warrantyInformation}</p>
-
-
                                     <span className='flex '>
-
-                                        <Stack direction="row" spacing={2}>
+                                        {/* <Stack direction="row" spacing={2}>
                                             <Button variant="outlined">Buy Now</Button>
-                                        </Stack>
-
+                                        </Stack> */}
                                         <span className='ml-2'>
                                             <Stack direction="row" spacing={2}>
                                                 <Button
@@ -228,23 +171,12 @@ const MonitorDetails = () => {
                                             </Stack>
                                         </span>
                                     </span>
-
                                     <p></p>
-
-
-
-
-
-                                    {/* start */}
-
                                     <span>
-
                                         <div>
                                             <Stack
                                                 onClick={handleOpen}
                                                 spacing={2} direction="row">
-                                                {/* <Button variant="text">Text</Button>
-                                                <Button variant="contained">Contained</Button> */}
                                                 <Button variant="outlined">Add Product Review</Button>
                                             </Stack>
                                             <Modal
@@ -260,50 +192,9 @@ const MonitorDetails = () => {
                                             >
                                                 <Fade in={open}>
                                                     <Box sx={style}>
-                                                        {/* <Typography id="transition-modal-title" variant="h6" component="h2">
-                                                            Review
-                                                        </Typography> */}
                                                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-
-
                                                             <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
                                                                 <form onSubmit={handleAddReview}>
-                                                                    {/* <div class="form-group mb-6"> */}
-                                                                    {/* <input
-                                                                            ref={nameRef}
-                                                                            type="text" class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7"
-                                                                            placeholder="Name" />
-                                                                    </div> */}
-                                                                    {/* <div class="form-group mb-6">
-                                                                        <input type="email" class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8"
-                                                                            placeholder="Email address" />
-                                                                    </div> */}
                                                                     <div class="form-group mb-6">
                                                                         <textarea
                                                                             ref={reviewRef}
@@ -329,30 +220,6 @@ const MonitorDetails = () => {
                                                                             placeholder="Message"
                                                                         ></textarea>
                                                                     </div>
-                                                                    {/* <div class="form-group form-check text-center mb-6">
-                                                                        <input type="checkbox"
-                                                                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-                                                                            id="exampleCheck87" checked />
-                                                                        <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">Send me a copy of this message</label>
-                                                                    </div> */}
-                                                                    {/* <button type="submit" class="
-      w-full
-      px-6
-      py-2.5
-      bg-blue-600
-      text-white
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-blue-700 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out">Send</button> */}
 
                                                                     <Stack direction="row" spacing={2}>
 
@@ -378,13 +245,8 @@ const MonitorDetails = () => {
                                                                         />
                                                                         <ToastContainer />
                                                                     </Stack>
-
-
                                                                 </form>
                                                             </div>
-
-
-
                                                         </Typography>
                                                     </Box>
                                                 </Fade>
@@ -392,43 +254,21 @@ const MonitorDetails = () => {
                                         </div>
                                     </span>
 
-
-
-
-
-
-
-                                    {/* end  */}
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                     <div>
-
-
                         <Cart cart={cart}>
                             <Link to="/review">
-                                {/* <button className="btn-regular">Review Your Order</button> */}
                                 <Stack direction="row" spacing={2}>
                                     <Button variant="outlined">Review Your Order</Button>
-
                                 </Stack>
                             </Link>
-
                         </Cart>
-
-
-
-
                     </div>
-
-
                 </div>
             </Container>
-
-
             <Container>
                 <div>
                     <Container>
@@ -452,31 +292,22 @@ const MonitorDetails = () => {
                             <p>{warrantyInformation}</p>
                         </div>
                     </Container>
-
                 </div>
-
-
                 <div>
                     <div>
                         <div className="my-5 bg-gray-50 h-20 flex items-center justify-center text-gray-700 font-semibold shadow-md">
                             <p className="mx-auto text-center fw-bold h5"><i><u>Product reviews</u></i></p>
-
-
                         </div>
                     </div>
                     <div>
                         <Review currentProductID={_id} >
-
                         </Review>
                     </div>
                 </div>
-
                 <div>
                     <div>
                         <div className="my-5 bg-gray-50 h-20 flex items-center justify-center text-gray-700 font-semibold shadow-md">
                             <p className="mx-auto text-center fw-bold h5"><i><u>Similar Products</u></i></p>
-
-
                         </div>
                     </div>
                     <div className="grid lg:grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
@@ -486,14 +317,12 @@ const MonitorDetails = () => {
                                     key={monitor._id}
                                     monitor={monitor}
                                 >
-
                                 </DisplayMonitor>
                             )
                         }
                     </div>
                 </div>
             </Container>
-
             <Footer></Footer>
         </div>
     );

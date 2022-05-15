@@ -17,45 +17,30 @@ const OrderReview = () => {
             .then(res => res.json())
             .then(data => setMonitors(data));
     }, []);
-
     const [cart, setCart] = useCart(monitors);
     const history = useHistory();
-
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         removeFromDb(key);
     }
-
     const handleProceedToShipping = () => {
-        // setCart([]);
-        // clearTheCart();
         history.push('/shipping');
     }
-
     return (
-
         <div>
             <div className='grid grid-cols-4 gap-4'>
                 <div className='col-span-3 '>
-
                     {
                         cart.map(monitor => <ReviewItem
                             key={monitor.key}
                             monitor={monitor}
                             handleRemove={handleRemove}
-
                         >
-
-
                         </ReviewItem>)
                     }
-
-
                 </div>
-
                 <div className='cart-space'>
-
                     <Cart cart={cart}>
                         <Stack direction="row" spacing={2}>
                             <Button
@@ -65,16 +50,12 @@ const OrderReview = () => {
                             </Button>
                         </Stack>
                     </Cart>
-
                 </div>
-
-
             </div>
             <div>
                 <Footer></Footer>
             </div>
         </div>
-
     );
 };
 

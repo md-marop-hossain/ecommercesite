@@ -10,9 +10,7 @@ import DisplayTablet from '../displayTablet/DisplayTablet';
 const TabletDetails = () => {
     const { id } = useParams();
     const [specificOrders, setSpecificOrders] = useState([]);
-
     const [cart, setCart] = useCart(specificOrders);
-
     useEffect(() => {
         fetch('http://localhost:5000/tabletCollection')
             .then(res => res.json())
@@ -21,16 +19,12 @@ const TabletDetails = () => {
             });
     }, [id]);
 
-
-
     const specificeTabletService = specificOrders.find(t => t._id == id);
     const similarTabletService = specificOrders.filter(ft => ft._id != id);
-
     const { _id, title, image, brand, model, price, regularprice, productcode,
         processor, connectivitymode, displaytype, displaysize, displayresolution, frontcamera,
         ram, storage, battery, simcardtype, cardslot, sound, color, dimension, weight, operatingsystem,
         warranty, tabletid } = specificeTabletService || {};
-
     const handleAddToCart = (product) => {
         console.log("product.........", product._id);
         const exists = cart.find(pd => pd._id === product._id);
@@ -47,15 +41,11 @@ const TabletDetails = () => {
         setCart(newCart);
         // save to local storage (for now)
         addToDb(product._id);
-
     }
-
     return (
         <div className='mt-4'>
-
             <Container>
                 <div className="grid grid-cols-2 gap-4">
-
                     <div class="card mb-3" className="mxWidth" >
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -63,7 +53,6 @@ const TabletDetails = () => {
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-
                                     <h5 class="card-title">{title}</h5>
                                     <p class="card-text">Brand : {brand}</p>
                                     <p class="card-text">Model : {model}</p>
@@ -81,28 +70,16 @@ const TabletDetails = () => {
                             </div>
                         </div>
                     </div>
-
                     <div>
-
-
                         <Cart cart={cart}>
                             <Link to="/">
                                 <button className="btn-regular">Review Your Order</button>
                             </Link>
 
                         </Cart>
-
-
-
-
                     </div>
-
-
-
                 </div>
             </Container>
-
-
             <Container>
                 <div>
                     <Container>
@@ -128,14 +105,11 @@ const TabletDetails = () => {
                             <p>{warranty}</p>
                         </div>
                     </Container>
-
                 </div>
                 <div>
                     <div>
                         <div className="desc-title-t w-100 mb-4">
                             <p className="mx-auto text-center fw-bold h2">Similar Products</p>
-
-
                         </div>
                     </div>
                     <div className="grid lg:grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
@@ -152,8 +126,6 @@ const TabletDetails = () => {
                     </div>
                 </div>
             </Container>
-
-
         </div>
     );
 };

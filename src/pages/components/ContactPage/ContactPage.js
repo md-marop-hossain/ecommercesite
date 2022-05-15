@@ -3,13 +3,10 @@ import Footer from '../../Shared/Footer/Footer';
 import './ContactPage.css';
 
 const ContactPage = () => {
-
-
     const nameRef = useRef();
     const emailRef = useRef();
     const phoneRef = useRef();
     const messageRef = useRef();
-
     const handleContactMessage = (event) => {
         event.preventDefault();
         const name = nameRef.current.value;
@@ -35,11 +32,6 @@ const ContactPage = () => {
                     event.target.reset();
                 }
             })
-
-
-
-
-
     }
 
     return (
@@ -69,11 +61,11 @@ const ContactPage = () => {
                                 <div
                                     class="max-w-[570px] mb-12 lg:mb-0"
                                 >
-                                    <p class="text-base text-4xl font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
+                                    <p class="text-base text-3xl font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
                                         If you have any complaints you can reach us via message...
                                     </p>
                                     <p class="text-base text-2xl font-medium text-body-color leading-relaxed mb-9 mx-5">
-                                        Based in <span class="font-bold font-bold italic">Bangladesh</span>, available Faridpur.
+                                        Based in <span class="font-bold font-bold italic">Dhaka</span>, available Bangladesh
                                     </p>
 
 

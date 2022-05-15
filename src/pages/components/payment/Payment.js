@@ -3,16 +3,14 @@ import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CheckOutForm from './CheckOutForm';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 import './Payment.css';
 
 const stripePromise = loadStripe('pk_test_51KyxvoFvWWhUeq9Tf6Hg07y9Zp4JgoaUCn0f9OZEVp9z0Lp399N4uwVV7CymXQKsYVonZUMxS1N8ns2VEat1UGry003YWsG11J');
-
 
 const Payment = () => {
     const { productId } = useParams();
@@ -24,9 +22,8 @@ const Payment = () => {
             .then(data => setProductPurchases(data));
 
     }, [productId])
-    // console.log("pursh..", productPurchases.regularPrice);
 
-    const { _id, title, image, price, regularPrice, productCode, brand, panelType, screenSize, displayType, resolution, brightness, user } = productPurchases || {};
+    const { title, image, regularPrice, productCode, brand, panelType, screenSize, displayType, resolution, brightness } = productPurchases || {};
     return (
         <div>
             <div className='flex justify-center'>
@@ -55,7 +52,6 @@ const Payment = () => {
 
                             </Typography>
                         </CardContent>
-
                     </CardActionArea>
                 </Card>
             </div>
@@ -74,8 +70,6 @@ const Payment = () => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };

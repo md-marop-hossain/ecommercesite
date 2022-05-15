@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import DisplayManageProducts from './DisplayManageProducts';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 const ManageProducts = () => {
@@ -19,8 +18,6 @@ const ManageProducts = () => {
     }, [])
 
     const handleManageProducts = (id) => {
-        console.log("mang id: ", id)
-        // console.log("manage all order id : ", id);
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
             const url = `http://localhost:5000/monitorCollection/${id}`;
@@ -42,12 +39,7 @@ const ManageProducts = () => {
             <React.Fragment>
                 <CssBaseline />
                 <Container maxWidth="fixed">
-
-
-
                     <div class="grid grid-cols-3 gap-4">
-
-
                         {
                             manageProducts.map(manageProduct => <DisplayManageProducts
                                 key={manageProduct._id}
@@ -57,16 +49,9 @@ const ManageProducts = () => {
                             </DisplayManageProducts>)
 
                         }
-
                     </div>
-
-
                 </Container>
             </React.Fragment>
-
-
-
-
         </div>
     );
 };

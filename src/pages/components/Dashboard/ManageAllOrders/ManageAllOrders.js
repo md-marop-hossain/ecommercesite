@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
-
-// import Backdrop from '@material-ui/core/Backdrop';
-// import { CircularProgress } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
-import MySingleOrder from '../MySingleOrder/MySingleOrder';
 import DisplayManageAllOrder from './DisplayManageAllOrder';
-
-// const useStyles = makeStyles((theme) => ({
-//     backdrop: {
-//         zIndex: theme.zIndex.drawer + 1,
-//         color: '#fff',
-//     },
-// }));
 
 const ManageAllOrders = () => {
     const { user } = useAuth();
@@ -64,7 +52,6 @@ const ManageAllOrders = () => {
                                     <th class="px-4 py-3">Screen Size</th>
                                     <th class="px-4 py-3">Display Type</th>
                                     <th class="px-4 py-3">Action</th>
-                                    {/* <th class="px-4 py-3">Payment</th> */}
                                 </tr>
                             </thead>
                             <tbody class="bg-white">

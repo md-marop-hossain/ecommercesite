@@ -91,7 +91,6 @@ const SpeakerDetails = () => {
                                     key={speaker._id}
                                     speaker={speaker}
                                 >
-
                                 </DisplaySpeaker>
                             )
                         }

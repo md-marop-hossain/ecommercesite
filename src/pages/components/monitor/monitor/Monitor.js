@@ -7,7 +7,6 @@ import './Monitor.css';
 const Monitor = () => {
     const [monitors, setMonitors] = useState([]);
     const [displayMonitors, setDisplayMonitors] = useState([]);
-
     useEffect(() => {
         fetch('http://localhost:5000/monitorCollection')
             .then(res => res.json())
@@ -16,7 +15,6 @@ const Monitor = () => {
                 setDisplayMonitors(data);
             });
     }, [])
-
     const handleSearch = event => {
         const searchText = event.target.value;
         console.log(searchText);
@@ -25,8 +23,6 @@ const Monitor = () => {
 
         setDisplayMonitors(matchedProducts);
     }
-
-
     return (
         <div>
             <div className='my-4'>

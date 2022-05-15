@@ -11,11 +11,9 @@ const Tablet = () => {
             .then(data => {
                 setTablets(data)
             })
-
     }, [])
     return (
         <Container>
-
             <div className="grid lg:grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
                 {
                     tablets.map(tablet => <DisplayTablet

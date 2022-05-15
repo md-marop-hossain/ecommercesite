@@ -10,11 +10,9 @@ const MakeAdmin = () => {
 
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
-
     const handleAdminSubmit = e => {
         const user = { email };
 

@@ -6,9 +6,7 @@ import './Category.css';
 
 const Category = () => {
     return (
-
         <div className='mt-4'>
-
             <Container>
                 <div className="">
                     <p className="flex justify-center h2"><u>Featured Category</u></p>
@@ -94,10 +92,6 @@ const Category = () => {
                             <p className="h5 mx-auto">Cable-Converter</p>
                         </Card>
                     </div>
-
-
-
-
                 </div>
             </Container>
         </div>

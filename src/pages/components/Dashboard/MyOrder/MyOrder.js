@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
-
-// import Backdrop from '@material-ui/core/Backdrop';
-// import { CircularProgress } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
 import MySingleOrder from '../MySingleOrder/MySingleOrder';
-
-// const useStyles = makeStyles((theme) => ({
-//     backdrop: {
-//         zIndex: theme.zIndex.drawer + 1,
-//         color: '#fff',
-//     },
-// }));
-
 
 const MyOrder = () => {
     const { user } = useAuth();
@@ -29,9 +17,6 @@ const MyOrder = () => {
 
     // DELETE AN USER
     const handleDeleteUser = id => {
-        console.log("iddddd : ", id);
-
-
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
             const url = `http://localhost:5000/orders/${id}`;

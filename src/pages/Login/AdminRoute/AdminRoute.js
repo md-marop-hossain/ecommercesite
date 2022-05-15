@@ -6,6 +6,7 @@ import { Route, Redirect } from 'react-router-dom';
 const AdminRoute = ({ children, ...rest }) => {
     const { user, admin, isLoading } = useAuth();
     if (isLoading) { return <CircularProgress /> }
+
     return (
         <Route
             {...rest}

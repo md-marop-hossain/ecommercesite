@@ -1,9 +1,7 @@
 import React from 'react';
 
 const SingleReview = (props) => {
-    // console.log("single review...", props.review);
-    const { reviewerName, review, reviewerEmail, productId, currentDate, currentTime, displayImage } = props.review || {};
-
+    const { reviewerName, review, currentDate, currentTime, displayImage } = props.review || {};
 
     return (
         <div class="bg-gray-50 text-black rounded-lg  w-[34rem] space-y-6 p-10">
@@ -37,9 +35,6 @@ const SingleReview = (props) => {
                     {review}
                 </p>
             </div>
-
-
-
         </div>
 
     );

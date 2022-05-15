@@ -13,8 +13,6 @@ const CheckOutForm = ({ productPurchases }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
-
-
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [clientSecret, setClientSecret] = useState('');
@@ -74,8 +72,6 @@ const CheckOutForm = ({ productPurchases }) => {
             },
         );
 
-
-
         if (intentError) {
             setError(intentError.message);
             setSuccess('');
@@ -93,7 +89,6 @@ const CheckOutForm = ({ productPurchases }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-
             const url = `http://localhost:5000/orders/${_id}`;
             fetch(url, {
                 method: 'PUT',
@@ -105,7 +100,6 @@ const CheckOutForm = ({ productPurchases }) => {
                 .then(res => res.json())
                 .then(data => console.log(data))
         }
-
 
     }
     return (
@@ -157,10 +151,5 @@ const CheckOutForm = ({ productPurchases }) => {
     );
 };
 
-
-
 export default CheckOutForm;
 
-{/* <button type="submit" className='' disabled={!stripe}>
-                        pay ${regularPrice}
-                    </button> */}

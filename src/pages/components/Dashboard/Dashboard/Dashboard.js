@@ -18,12 +18,6 @@ import {
     NavLink
 } from "react-router-dom";
 import { Button } from '@mui/material';
-// import DashboardHome from '../DashboardHome/DashboardHome';
-// import AddReview from '../AddReview/AddReview';
-// import AddNewCar from '../AddNewCar/AddNewCar';
-// import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
-// import Payment from '../Payment/Payment';
-// import ManageProducts from '../ManageProducts/MangeProducts/ManageProducts';
 import { useHistory } from "react-router-dom";
 import useAuth from '../../../../hooks/useAuth';
 import AddNewProduct from '../AddNewProduct/AddNewProduct';
@@ -34,8 +28,6 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import AdminRoute from '../../../Login/AdminRoute/AdminRoute';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ContactPageInformation from '../ContactPageInformation/ContactPageInformation';
-
-
 const drawerWidth = 200;
 
 function Dashboard(props) {
@@ -57,7 +49,6 @@ function Dashboard(props) {
     const drawer = (
         <div >
             <Toolbar />
-            {/* <Divider /> */}
             <Link className="adminroute-button" to="/home"><Button color="inherit"><i class="far fa-arrow-alt-circle-left"></i>Back To home page</Button></Link> <Divider />
 
             <NavLink className="adminroute-button"
@@ -76,32 +67,11 @@ function Dashboard(props) {
                             color: "green"
                         }} to={`${url}/myOrder`}><Button color="inherit">My Order <i class="fas fa-angle-double-right ml-2"></i></Button></NavLink>
                     <Divider />
-
-
-
-                    {/* <NavLink className="adminroute-button"
-                        activeStyle={{
-                            fontWeight: "bold",
-                            color: "green"
-                        }}
-                        to={`${url}/review`}><Button color="inherit">Add Review<i class="fas fa-angle-double-right ml-2"></i></Button></NavLink>
-                    <Divider />
-
-                    <NavLink className="adminroute-button"
-                        activeStyle={{
-                            fontWeight: "bold",
-                            color: "green"
-                        }}
-                        to={`${url}/payment`}><Button color="inherit">Payment<i class="fas fa-angle-double-right ml-2"></i></Button></NavLink> */}
                     <Divider />
                     <br /><br />
                 </Box>
 
-
             }
-
-
-
 
             {admin && <Box>
 
@@ -147,8 +117,6 @@ function Dashboard(props) {
                     }}
                     to={`${url}/contactPageInfo`}><Button color="inherit">Contact Info.<i class="fas fa-angle-double-right ml-2"></i></Button></NavLink><br />
                 <Divider /> <br /><br /><br />
-
-
             </Box>}
 
             <p>
@@ -159,7 +127,6 @@ function Dashboard(props) {
 
         </div>
     );
-
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
@@ -230,8 +197,6 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         {/* <DashboardHome></DashboardHome> */}
                     </Route>
-
-
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
@@ -246,19 +211,12 @@ function Dashboard(props) {
                     <Route path={`${path}/payment/:productId`}>
                         <Payment></Payment>
                     </Route>
-
-                    {/* <Route path={`${path}/review`}>
-                        <AddReview></AddReview>
-                    </Route> */}
                     <Route exact path={`${path}/addNewProduct`}>
                         <AddNewProduct></AddNewProduct>
                     </Route>
                     <Route path={`${path}/manageAllOrders`}>
                         <ManageAllOrders></ManageAllOrders>
                     </Route>
-                    {/* <Route path={`${path}/payment`}>
-                        <Payment></Payment>
-                    </Route> */}
                     <Route path={`${path}/manageProducts`}>
                         <ManageProducts></ManageProducts>
                     </Route>

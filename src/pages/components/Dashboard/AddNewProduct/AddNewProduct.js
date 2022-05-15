@@ -1,6 +1,5 @@
 import { Container } from '@mui/material';
 import React, { useRef } from 'react';
-import useAuth from '../../../../hooks/useAuth';
 import './AddNewProduct.css';
 
 const AddNewProduct = () => {
