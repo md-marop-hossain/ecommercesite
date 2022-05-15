@@ -1,0 +1,7 @@
+.banner-div {
+    background-image: url('https://images.unsplash.com/photo-1593640495390-1ff7c3f60e9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGdhZGdldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1974&q=500');
+}
+
+.banner-divv {
+    transform: translateZ(0px);
+}

@@ -23,12 +23,12 @@ const Cart = (props) => {
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
 
             <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Order Summary</div>
-                <p class="text-gray-800 text-base"> Items Ordered: {totalQuantity}</p>
-                <p class="text-gray-700 text-base">Total: ${total.toFixed(2)}</p>
-                <p class="text-gray-700 text-base"> Shipping: ${shipping}</p>
-                <p class="text-gray-700 text-base"> tax: ${tax.toFixed(2)}</p>
-                <p class="text-gray-700 text-base"> Grand Total: ${grandTotal.toFixed(2)}</p>
+                <div class="font-bold text-xl mb-2 flex justify-center"><u>Order Summary</u></div>
+                <p class="text-gray-800 text-base"><span class=" fw-bold">Items Ordered:</span>  {totalQuantity}</p>
+                <p class="text-gray-700 text-base"><span class=" fw-bold">Total:</span> ${total.toFixed(2)}</p>
+                <p class="text-gray-700 text-base"><span class=" fw-bold">Shipping:</span> ${shipping}</p>
+                <p class="text-gray-700 text-base"><span class=" fw-bold">Tax:</span> ${tax.toFixed(2)}</p>
+                <p class="text-gray-700 text-base"><span class=" fw-bold">Grand Total:</span> ${grandTotal.toFixed(2)}</p>
                 {props.children}
 
             </div>

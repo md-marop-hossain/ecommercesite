@@ -1,0 +1,44 @@
+.bg-c {
+    background-color: rgb(237, 236, 236) !important;
+}
+
+.dashboard-header {
+    color: rgba(4, 0, 0, 0.922);
+    font-weight: 600 !important;
+    font-size: x-large !important;
+}
+
+.adminroute-button {
+    text-decoration: none;
+    color: black;
+    /* font-weight: bolder !important; */
+
+}
+
+.admin-panel {
+    margin-left: 20px;
+    margin-right: 7px;
+    /* font-weight: 600; */
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #1b0707eb;
+}
+
+.admin-div {
+    background-color: #f4f3e1;
+
+}
+
+.service-bg {
+    background-image: url('https://image.freepik.com/free-vector/abstract-background-with-squares_23-2148995948.jpg');
+    opacity: 1;
+}
+
+.logoutbutton {
+    color: black !important;
+    font-weight: bolder !important;
+    margin-left: 5px !important;
+    border-left: 4px solid black !important;
+    /* border-top: 2px solid black !important;
+    border-bottom: 2px solid black !important; */
+}

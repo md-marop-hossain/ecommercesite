@@ -44,7 +44,7 @@ const Login = () => {
 
                     <div >
                         <div class="bg-white shadow rounded lg:w-2/3  md:w-1/2 w-full p-10 mt-16">
-                            <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your account</p>
+                            <p tabindex="0" class="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800 flex justify-center">Login to your account</p>
                             <Button
                                 color="lightBlue"
                                 buttonType="link"

@@ -2,15 +2,12 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-// import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 import useAuth from "../../../hooks/useAuth";
 import { useHistory } from 'react-router-dom';
 import { Button } from '@material-tailwind/react';
 import Label from "@material-tailwind/react/Label";
+import './Header.css';
 
 const Header = () => {
 
@@ -20,13 +17,12 @@ const Header = () => {
         history.push('/login');
     }
 
-
     return (
         <div>
 
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">TechTrans</Navbar.Brand>
+                    <Navbar.Brand href="/home"><h4 className='techtrans'>TechTrans</h4></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -39,8 +35,9 @@ const Header = () => {
                             <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{
-                                    fontWeight: "bold",
-                                    color: "cadetblue"
+                                    fontWeight: "bolder",
+                                    color: "cadetblue",
+                                    textDecorationLine: 'underline'
                                 }}
                                 to="/home"
                             >
@@ -52,12 +49,13 @@ const Header = () => {
                             <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{
-                                    fontWeight: "bold",
-                                    color: "cadetblue"
+                                    fontWeight: "bolder",
+                                    color: "cadetblue",
+                                    textDecorationLine: 'underline'
                                 }}
                                 to="/monitor"
                             >
-                                <span>
+                                <span className='route-style'>
                                     Monitor
                                 </span>
                             </NavLink>
@@ -65,25 +63,40 @@ const Header = () => {
                             <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{
-                                    fontWeight: "bold",
-                                    color: "cadetblue"
+                                    fontWeight: "bolder",
+                                    color: "cadetblue",
+                                    textDecorationLine: 'underline'
                                 }}
                                 to="/tablet"
                             >
-                                <span>
+                                <span className='route-style'>
                                     Tablet
                                 </span>
                             </NavLink>
                             <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{
-                                    fontWeight: "bold",
-                                    color: "cadetblue"
+                                    fontWeight: "bolder",
+                                    color: "cadetblue",
+                                    textDecorationLine: 'underline'
                                 }}
                                 to="/speaker"
                             >
-                                <span>
+                                <span className='route-style' >
                                     Speaker
+                                </span>
+                            </NavLink>
+                            <NavLink
+                                className="nav-bar nav-link"
+                                activeStyle={{
+                                    fontWeight: "bolder",
+                                    color: "cadetblue",
+                                    textDecorationLine: 'underline'
+                                }}
+                                to="/contact"
+                            >
+                                <span className='route-style' >
+                                    Contact
                                 </span>
                             </NavLink>
 
@@ -117,49 +130,28 @@ const Header = () => {
 
 
 
+
+
+
+
+
+
+
                             {
-                                user.email ? <Button
-                                    color="pink"
-                                    buttonType="outline"
-                                    size="sm"
-                                    rounded={false}
-                                    block={false}
-                                    iconOnly={false}
-                                    ripple="dark"
-                                    onClick={logout}
+                                user.email && <NavLink
+                                    className="nav-bar nav-link"
+                                    activeStyle={{
+                                        fontWeight: "bolder",
+                                        color: "cadetblue",
+                                        textDecorationLine: 'underline'
+                                    }}
+                                    to="/dashboard"
                                 >
-                                    LogOut
-                                </Button> :
-
-                                    <Button
-                                        color="teal"
-                                        buttonType="outline"
-                                        size="sm"
-                                        rounded={false}
-                                        block={false}
-                                        iconOnly={false}
-                                        ripple="dark"
-                                        onClick={handleSignIn}
-                                    >
-                                        LogIn
-                                    </Button>
+                                    <span className='route-style-dashboard'>
+                                        Dashboard
+                                    </span>
+                                </NavLink>
                             }
-
-
-
-
-                            {
-
-                                user.email && <Label color="blueGray" className="ml-2"><span className="user-name">User name: {user.displayName}</span></Label>
-                            }
-
-
-
-
-
-
-
-
 
 
 
@@ -190,6 +182,43 @@ const Header = () => {
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form> */}
+
+                        {
+                            user.email ? <Button
+                                color="pink"
+                                buttonType="outline"
+                                size="sm"
+                                rounded={false}
+                                block={false}
+                                iconOnly={false}
+                                ripple="dark"
+                                onClick={logout}
+                            >
+                                LogOut
+                            </Button> :
+
+                                <Button
+                                    color="teal"
+                                    buttonType="outline"
+                                    size="sm"
+                                    rounded={false}
+                                    block={false}
+                                    iconOnly={false}
+                                    ripple="dark"
+                                    onClick={handleSignIn}
+                                >
+                                    LogIn
+                                </Button>
+                        }
+
+
+
+
+                        {
+
+                            user.email && <Label color="blueGray" className="ml-2"><span className="user-name">User name: {user.displayName}</span></Label>
+                        }
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

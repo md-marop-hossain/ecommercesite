@@ -15,6 +15,10 @@ import "@material-tailwind/react/tailwind.css";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import Dashboard from "./pages/components/Dashboard/Dashboard/Dashboard";
+import OrderReview from "./pages/components/monitor/OrderReview/OrderReview";
+import Shipping from "./pages/components/monitor/Shipping/Shipping";
+import ContactPage from "./pages/components/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -41,6 +45,14 @@ function App() {
               <MonitorDetails></MonitorDetails>
             </PrivateRoute>
 
+            <Route exact path="/review">
+              <OrderReview></OrderReview>
+            </Route>
+
+            <Route exact path='/shipping'>
+              <Shipping></Shipping>
+            </Route>
+
 
             <Route exact path="/tablet">
               <Tablet></Tablet>
@@ -51,6 +63,9 @@ function App() {
 
             <Route exact path="/speaker">
               <Speaker></Speaker>
+            </Route>
+            <Route exact path="/contact">
+              <ContactPage></ContactPage>
             </Route>
             <Route exact path="/speakerDetails/:id">
               <SpeakerDetails></SpeakerDetails>
@@ -65,6 +80,11 @@ function App() {
               <Register></Register>
             </Route>
 
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
+            </Route>
+
+
 
 
             <Route exact path="*">
@@ -73,8 +93,9 @@ function App() {
 
 
 
+
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </BrowserRouter>
 
       </AuthProvider>
