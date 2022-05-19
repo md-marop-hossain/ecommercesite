@@ -56,7 +56,7 @@ const Header = () => {
                                 </span>
                             </NavLink>
 
-                            <NavLink
+                            {/* <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{
                                     fontWeight: "bolder",
@@ -81,7 +81,7 @@ const Header = () => {
                                 <span className='route-style' >
                                     Speaker
                                 </span>
-                            </NavLink>
+                            </NavLink> */}
                             <NavLink
                                 className="nav-bar nav-link"
                                 activeStyle={{

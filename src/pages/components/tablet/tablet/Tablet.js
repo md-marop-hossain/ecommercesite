@@ -6,7 +6,7 @@ const Tablet = () => {
     const [tablets, setTablets] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tabletCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/tabletCollection')
             .then(res => res.json())
             .then(data => {
                 setTablets(data)

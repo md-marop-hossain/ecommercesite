@@ -17,7 +17,7 @@ const Payment = () => {
     const [productPurchases, setProductPurchases] = useState({});
     useEffect(() => {
 
-        fetch(`http://localhost:5000/orders/${productId}`)
+        fetch(`https://lit-escarpment-04985.herokuapp.com/orders/${productId}`)
             .then(res => res.json())
             .then(data => setProductPurchases(data));
 

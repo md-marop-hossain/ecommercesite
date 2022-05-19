@@ -18,7 +18,7 @@ const ContactPage = () => {
         const contactPageUserMessage = { name, email, phone, message };
         console.log("contact..", contactPageUserMessage)
 
-        fetch('http://localhost:5000/contact', {
+        fetch('https://lit-escarpment-04985.herokuapp.com/contact', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

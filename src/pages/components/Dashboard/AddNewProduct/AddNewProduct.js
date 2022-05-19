@@ -41,7 +41,7 @@ const AddNewProduct = () => {
 
         const addNewMonitor = { brand, brightness, colourSupport, contrastRatio, displayType, image, panelType, price, productCode, refreshRate, regularPrice, resolution, responseTime, screenSize, title, warrantyInformation };
 
-        fetch('http://localhost:5000/monitorCollection', {
+        fetch('https://lit-escarpment-04985.herokuapp.com/monitorCollection', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

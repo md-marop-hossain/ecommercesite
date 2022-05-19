@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [manageProducts, setManageProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/monitorCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/monitorCollection')
             .then(res => res.json())
             .then(data => {
                 setManageProducts(data)
@@ -20,7 +20,7 @@ const ManageProducts = () => {
     const handleManageProducts = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/monitorCollection/${id}`;
+            const url = `https://lit-escarpment-04985.herokuapp.com/monitorCollection/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

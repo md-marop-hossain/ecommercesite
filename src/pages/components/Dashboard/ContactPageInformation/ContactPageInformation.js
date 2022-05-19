@@ -5,7 +5,7 @@ const ContactPageInformation = () => {
 
     const [contactInfo, setContactInfo] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/contact')
+        fetch('https://lit-escarpment-04985.herokuapp.com/contact')
             .then(res => res.json())
             .then(data => setContactInfo(data));
 

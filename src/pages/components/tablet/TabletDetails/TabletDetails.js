@@ -12,7 +12,7 @@ const TabletDetails = () => {
     const [specificOrders, setSpecificOrders] = useState([]);
     const [cart, setCart] = useCart(specificOrders);
     useEffect(() => {
-        fetch('http://localhost:5000/tabletCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/tabletCollection')
             .then(res => res.json())
             .then(data => {
                 setSpecificOrders(data)

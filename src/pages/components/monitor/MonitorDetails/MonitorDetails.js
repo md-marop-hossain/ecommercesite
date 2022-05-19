@@ -36,7 +36,7 @@ const MonitorDetails = () => {
     const [specificOrders, setSpecificOrders] = useState([]);
     const [cart, setCart] = useCart(specificOrders);
     useEffect(() => {
-        fetch('http://localhost:5000/monitorCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/monitorCollection')
             .then(res => res.json())
             .then(data => {
                 setSpecificOrders(data)
@@ -84,7 +84,7 @@ const MonitorDetails = () => {
         monitorObject.colourSupport = specificMonitor.colourSupport;
         monitorObject.refreshRate = specificMonitor.refreshRate;
         monitorObject.user = user.email;
-        fetch('http://localhost:5000/orders', {
+        fetch('https://lit-escarpment-04985.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -121,7 +121,7 @@ const MonitorDetails = () => {
         const currentTime = new Date(new Date().getTime() + 4 * 60 * 60 * 1000).toLocaleTimeString();
         const displayImage = user.photoURL;
         const addCurrentReview = { reviewerName, review, reviewerEmail, productId, currentDate, currentTime, displayImage };
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://lit-escarpment-04985.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

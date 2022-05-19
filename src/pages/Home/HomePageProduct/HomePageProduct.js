@@ -8,7 +8,7 @@ const HomePageProduct = () => {
     const [monitors, setMonitors] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/monitorCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/monitorCollection')
             .then(res => res.json())
             .then(data => {
                 setMonitors(data);
@@ -19,7 +19,7 @@ const HomePageProduct = () => {
     const [tablets, setTablets] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tabletCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/tabletCollection')
             .then(res => res.json())
             .then(data => {
                 setTablets(data)
@@ -30,7 +30,7 @@ const HomePageProduct = () => {
     const [speakers, setSpeakers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/speakerCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/speakerCollection')
             .then(res => res.json())
             .then(data => {
                 setSpeakers(data)

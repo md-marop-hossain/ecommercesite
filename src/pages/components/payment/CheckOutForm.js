@@ -19,7 +19,7 @@ const CheckOutForm = ({ productPurchases }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent',
+        fetch('https://lit-escarpment-04985.herokuapp.com/create-payment-intent',
             {
                 method: 'POST',
                 headers: {
@@ -89,7 +89,7 @@ const CheckOutForm = ({ productPurchases }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-            const url = `http://localhost:5000/orders/${_id}`;
+            const url = `https://lit-escarpment-04985.herokuapp.com/orders/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

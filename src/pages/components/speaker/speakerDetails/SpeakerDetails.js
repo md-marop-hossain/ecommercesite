@@ -8,7 +8,7 @@ const SpeakerDetails = () => {
     const [specificOrders, setSpecificOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/speakerCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/speakerCollection')
             .then(res => res.json())
             .then(data => {
                 setSpecificOrders(data)

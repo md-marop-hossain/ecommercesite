@@ -13,7 +13,7 @@ import Footer from '../../../Shared/Footer/Footer';
 const OrderReview = () => {
     const [monitors, setMonitors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/monitorCollection')
+        fetch('https://lit-escarpment-04985.herokuapp.com/monitorCollection')
             .then(res => res.json())
             .then(data => setMonitors(data));
     }, []);
