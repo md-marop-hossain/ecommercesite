@@ -48,7 +48,7 @@ const HomePageProduct = () => {
                 <div class="grid lg:grid-cols-3 md:grid-cols-2
 gap-4">
                     {
-                        monitors.slice(0, 3).map(monitor => <DisplayMonitor
+                        monitors.slice(0, 6).map(monitor => <DisplayMonitor
                             key={monitor._id}
                             monitor={monitor}
                         >
@@ -57,7 +57,7 @@ gap-4">
                     }
 
                 </div>
-                <div class="grid lg:grid-cols-3 md:grid-cols-2
+                {/* <div class="grid lg:grid-cols-3 md:grid-cols-2
  gap-4">
                     {
                         tablets.slice(0, 3).map(tablet => <DisplayTablet
@@ -81,7 +81,7 @@ gap-4">
                         </DisplaySpeaker>)
                     }
 
-                </div>
+                </div> */}
             </Container >
         </div>
     );
